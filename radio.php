@@ -2,22 +2,29 @@
 <html>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js">
+var interval = setInterval(function(){ 
+    $.getJSON('audio_stat.php', function(data) {
+        if (getCookie('old_modification') != data.filedate) {
+            window.location.reload();
+        };
 
-
-
-function checkEverySecond() {
-    setInterval(function() {
-        check();
-    }, 1000);
-}
-function check() {
-    $.getJson('audio_stat').done(function(json) {
-        if (didChange(json)) {// use _.isEqual to write your didChange
-            takeAction();
-        }
+        setCookie('old_modification', data.filedate);
     });
+}, 1000);
+
+function setCookie(name, value) {
+    var cookie_string = name + "=" + encodeURI(value);
+    document.cookie = cookie_string;
 }
 
+function getCookie(cookie_name) {
+    var results = document.cookie.match('(^|;) ?' + cookie_name + '=([^;]*)(;|$)');
+    return results ? unescape(results[2]) : null;
+}
+
+if(getCookie('old_modification') === null) {
+    setCookie('old_modification', 0);
+}
 </script>
 
 
