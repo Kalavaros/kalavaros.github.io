@@ -13,7 +13,7 @@ if(isset($_FILES['fileToUpload'])){
 }
 ?>
 
-  <audio controls autoplay id="playAudio">
+  <audio controls id="playAudio">
     <source src="<?php echo "uploads/".$file_name; ?>">
   </audio>
 
