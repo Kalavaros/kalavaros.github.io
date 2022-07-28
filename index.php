@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-  Hello world
-
-  <?php
+<?php
 if(isset($_FILES['fileToUpload'])){
   $file_name = $_FILES['fileToUpload']['name'];
   $file_tmp = $_FILES['fileToUpload']['tmp_name'];
