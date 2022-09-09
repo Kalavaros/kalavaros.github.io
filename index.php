@@ -8,8 +8,13 @@ if(isset($_FILES['fileToUpload'])){
   $file_name = $_FILES['fileToUpload']['name'];
   $file_tmp = $_FILES['fileToUpload']['tmp_name'];
   move_uploaded_file($file_tmp, "uploads/".basename($file_name));
+  
   $log = fopen("audio_name.txt", "w+");
   fwrite($log, $file_name);
+  fclose($log);
+
+  $log = fopen("time.txt", "w+");
+  fwrite($log, microtime(true)*1000);
   fclose($log);
 }
 ?>
@@ -20,8 +25,13 @@ if(isset($_FILES['textToUpload'])){
   $file_tmp = $_FILES['textToUpload']['tmp_name'];
   if(move_uploaded_file($file_tmp, "uploads/".basename($file_name))){
   $audio = saveSound(file_get_contents('uploads/'.basename($file_name)));
+ 
   $log = fopen("audio_name.txt", "w+");
   fwrite($log, "t2s.mp3");
+  fclose($log);
+
+  $log = fopen("time.txt", "w+");
+  fwrite($log, microtime(true)*1000);
   fclose($log);
 }
 }
