@@ -1,0 +1,3 @@
+V topologii a příbuzných matematických oborech se Hausdorffovým, separovaným neboli T2 prostorem rozumí topologický prostor, kde různé body mají disjunktní okolí. Je to jeden z několika oddělovacích axiomů a to dokonce ten nejpoužívanější. Plyne z něj mnoho přirozených vlastností, třeba jednoznačnost limit.
+
+Hausdorffovy prostory jsou pojmenovány po Felixi Hausdorffovi, jednom ze zakladatelů topologie. Jeho původní definice topologického prostoru (z roku 1914) obsahuje právě tuto podmínku jako axiom. 

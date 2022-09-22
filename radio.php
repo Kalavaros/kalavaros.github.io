@@ -60,7 +60,8 @@ function play(){
 
 const d1 = new Date();
 calc = 10000-d1.getTime()+<?php echo $timestamp; ?>; 
-time = calc>0 ? calc : 0;
+//time = calc>0 ? calc : 0;
+time=0;
 document.getElementById("test1").innerHTML = time;
 const myTimeout = setTimeout(play, time);
 </script>

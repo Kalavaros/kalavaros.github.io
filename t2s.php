@@ -53,7 +53,10 @@ function saveSound($text)
       $speech_data = getSound($text);//see method upper
 
       if($speech_data) {             
-         $file_name = 't2s.mp3';
+         $file_name = strtolower(md5(uniqid($text)) . '.mp3');
+         $log = fopen("audio_name.txt", "w+");
+         fwrite($log, $file_name);
+         fclose($log);
          $path = 'uploads/';
          if(file_put_contents($path.$file_name, base64_decode($speech_data))){
              return $file_name;
